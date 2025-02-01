@@ -1,0 +1,26 @@
+div {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+div h1 {
+    background-color: whitesmoke;
+    padding: 45px 0px;
+}
+
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;    
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 1% 2%;
+    offset-distance: 5%;    
+}
