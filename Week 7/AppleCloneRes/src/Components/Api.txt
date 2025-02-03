@@ -1,0 +1,7 @@
+Api key = AIzaSyBsWhbHO-ET-aiRqiVv2rzkaQmxLwpfJ1w
+
+Channel id = UCE_M8A5yxnLfW0KghEeajjw
+
+Channel id check = UCE_M8A5yxnLfW0KghEeajjw
+
+Videos url = https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCE_M8A5yxnLfW0KghEeajjw&maxResults=9&order=date&key=AIzaSyBsWhbHO-ET-aiRqiVv2rzkaQmxLwpfJ1w
