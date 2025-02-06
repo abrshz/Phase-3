@@ -9,6 +9,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// 
+
+app.get ("/" , (req, res) => {
+    res.send("Server is running.")
+})
+
 // Connection database 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -51,7 +57,7 @@ app.get("/install" , (req, res) => {
 
         // Product price table
 
-     let product_price = `CREATE TABLE IF NOT EXISTS productprice (
+     let product_price = `CREATE TABLE IF NOT EXISTS       productprice (
         price_id INT AUTO_INCREMENT,
         product_id INT(11) NOT NULL,
         starting_price VARCHAR(255) NOT NULL,
@@ -62,12 +68,12 @@ app.get("/install" , (req, res) => {
 
            // User table
 
-           let user = `CREATE TABLE IF NOT EXISTS user (
-            user_id INT AUTO_INCREMENT,
-            user_name VARCHAR(255) NOT NULL,
-            user_password VARCHAR(255) NOT NULL,
-            PRIMARY KEY (user_id)        
-            )`;        
+    let user = `CREATE TABLE IF NOT EXISTS user (
+        user_id INT AUTO_INCREMENT,
+        user_name VARCHAR(255) NOT NULL,
+        user_password VARCHAR(255) NOT NULL,
+        PRIMARY KEY (user_id)        
+        )`;        
 
         //  Orders table
     let orders = `CREATE TABLE IF NOT EXISTS orders (
@@ -146,7 +152,16 @@ console.log("Successfully inserted");
 //  Get data
 
 app.get("/iphones", (req, res) => {
-    connection.query()
+    connection.query(
+        "SELECT * FROM products JOIN description JOIN productprice ON products.product_id = description.product_id AND products.product_id = productprice.product_id  ",
+        (err , rows ,fields) => {
+            let iphone = {products: [] };
+            iphone.products = rows;
+            var stringIphone = JSON.stringify(iphone);
+            if (!err) res.send(stringIphone);
+            else console.log(err);
+        }
+    )
 })
 
 // Listening server

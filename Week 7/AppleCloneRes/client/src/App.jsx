@@ -11,6 +11,7 @@ import Music from "./Pages/Music/Music"
 import Support from "./Pages/Support/Support"
 import Error from "./Pages/Error/Error"
 import SharedLayout from "./Pages/SharedLayout/SharedLayout"
+import SingleApplePage from "./Pages/Single page/SingleApplePage"
 
 
 function App() { 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Sections />} />
           <Route path="mac" element={<Mac />} />
           <Route path="iphone" element={<Iphone />} />
+          <Route path="iphone/:productID" element={<SingleApplePage />} />
           <Route path="ipad" element={<Ipad />} />
           <Route path="watch" element={<Watch />}/>
           <Route path="tv" element={<Tv />}/>
